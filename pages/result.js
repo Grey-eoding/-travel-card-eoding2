@@ -1,5 +1,7 @@
 import styles from '@/styles/Quiz.module.css';
 import { useRouter } from 'next/router';
+import { useRef, useState } from 'react';
+import html2canvas from 'html2canvas';
 
 const cardResults = {
   "트래블 월렛": {
@@ -43,6 +45,8 @@ const cardResults = {
 export default function Result() {
   const router = useRouter();
   const { card } = router.query;
+  const resultRef = useRef(null);
+  const [copied, setCopied] = useState(false);
 
   const cardData = cardResults[card];
 
@@ -50,11 +54,56 @@ export default function Result() {
     return <div className={styles.container}>결과를 불러오는 중입니다...</div>;
   }
 
+  const handleDownloadImage = async () => {
+    if (!resultRef.current) return;
+    const canvas = await html2canvas(resultRef.current);
+    const link = document.createElement('a');
+    link.download = `${card}_결과.png`;
+    link.href = canvas.toDataURL();
+    link.click();
+  };
+
+  const handleRestart = () => {
+    router.push('/quiz');
+  };
+
+  const handleShare = async () => {
+    const shareText = `${cardData.title}\n\n${cardData.description}\n\n${cardData.hashtags}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: '나의 여행 카드 추천 결과',
+          text: shareText,
+          url: window.location.href,
+        });
+      } catch (err) {
+        alert('공유가 취소되었어요.');
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(shareText);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch (err) {
+        alert('클립보드 복사에 실패했어요.');
+      }
+    }
+  };
+
   return (
     <div className={styles.container}>
-      <h1>{cardData.title}</h1>
-      <p style={{ whiteSpace: 'pre-line' }}>{cardData.description}</p>
-      <p className={styles.hashtags}>{cardData.hashtags}</p>
+      <div ref={resultRef}>
+        <h1>{cardData.title}</h1>
+        <p style={{ whiteSpace: 'pre-line' }}>{cardData.description}</p>
+        <p className={styles.hashtags}>{cardData.hashtags}</p>
+      </div>
+
+      <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+        <button onClick={handleDownloadImage} className={styles.button}>이미지로 저장하기</button>
+        <button onClick={handleRestart} className={styles.button}>테스트 다시하기</button>
+        <button onClick={handleShare} className={styles.button}>결과 공유하기</button>
+        {copied && <span style={{ color: 'green' }}>📋 복사 완료!</span>}
+      </div>
     </div>
   );
 }
