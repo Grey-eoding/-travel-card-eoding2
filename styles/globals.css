@@ -29,19 +29,20 @@ button {
   cursor: pointer;
 }
 
-/* 공통 이미지 스타일 (예: 결과 이미지) */
 .resultImage {
   width: 300px;
+  max-width: 90%;
   margin: 16px auto;
   display: block;
   border-radius: 8px;
 }
 
-/* 반응형 스타일 */
 @media (max-width: 768px) {
-  body {
-    font-size: 14px;
+  .resultImage {
+    width: 240px !important;
   }
+}
+
 
   h2 {
     font-size: 1.2rem;
