@@ -1,5 +1,8 @@
+/* styles/globals.css */
 body {
-  font-family: sans-serif;
-  padding: 2rem;
-  line-height: 1.6;
+  font-family: 'SUIT', 'Pretendard', sans-serif;
+  background-color: #f5f8ff;
+  color: #222;
+  margin: 0;
+  padding: 0;
 }
