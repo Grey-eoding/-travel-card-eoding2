@@ -32,6 +32,46 @@ const questions = [
       { text: '캐시백처럼 돌아오는 실익!', value: '캐시백' },
     ],
   },
+  {
+    question: '현지에서 가장 많이 쓰는 결제 방식은?',
+    options: [
+      { text: '신용카드', value: '카드' },
+      { text: '모바일 간편결제', value: '테크러' },
+      { text: '현금 인출해서 사용', value: '수동' },
+    ],
+  },
+  {
+    question: '기념품 살 때 중요한 건?',
+    options: [
+      { text: '가성비', value: '실속러' },
+      { text: '현지에서만 살 수 있는 것', value: '유럽러' },
+      { text: '포인트 적립/할인', value: '혜택러' },
+    ],
+  },
+  {
+    question: '주로 가는 여행지는?',
+    options: [
+      { text: '동남아/일본', value: '아시아러' },
+      { text: '유럽/미국', value: '유럽러' },
+      { text: '국내', value: '심플' },
+    ],
+  },
+  {
+    question: '여행 갈 때 카드 몇 장 챙겨?',
+    options: [
+      { text: '1~2장으로 최소화', value: '심플' },
+      { text: '혜택별로 다 챙긴다', value: '혜택러' },
+      { text: '해외 겸용카드 하나만', value: '트래블 월렛' },
+    ],
+  },
+  {
+    question: '결제 후 피드백은?',
+    options: [
+      { text: '알림 바로 오는 게 좋다', value: '토스카드' },
+      { text: '내역 확인 편한 게 중요', value: '네이버페이머니카드' },
+      { text: '알림은 필요 없다', value: '수동' },
+    ],
+  },
 ];
 
 const calculateResult = (answers) => {
@@ -48,6 +88,7 @@ const calculateResult = (answers) => {
     switch (answer) {
       case '심플':
       case '수동':
+      case '트래블 월렛':
         score['트래블 월렛'] += 1;
         break;
       case '아시아러':
@@ -66,10 +107,12 @@ const calculateResult = (answers) => {
         break;
       case '테크러':
       case '디자인':
+      case '토스카드':
         score['토스카드'] += 1;
         break;
       case '실속러':
       case '캐시백':
+      case '네이버페이머니카드':
         score['네이버페이머니카드'] += 1;
         break;
     }
@@ -85,8 +128,9 @@ export default function Quiz() {
 
   const handleAnswer = (value) => {
     const newAnswers = [...answers, value];
+    setAnswers(newAnswers);
+
     if (currentQuestion + 1 < questions.length) {
-      setAnswers(newAnswers);
       setCurrentQuestion(currentQuestion + 1);
     } else {
       const result = calculateResult(newAnswers);
