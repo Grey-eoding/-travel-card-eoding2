@@ -2,6 +2,7 @@ import styles from '@/styles/Quiz.module.css';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
 import html2canvas from 'html2canvas';
+import styles from '@/styles/Quiz.module.css';
 
 const cardResults = {
   "트래블 월렛": {
