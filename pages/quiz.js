@@ -98,13 +98,13 @@ export default function Quiz() {
     <div className={styles.container}>
       <h2>{questions[currentQuestion].question}</h2>
       <div className={styles.options}>
-        {questions[currentQuestion].options.map((opt, idx) => (
+        {questions[currentQuestion].options.map((option, index) => (
           <button
-            key={idx}
+            key={index}
             className={styles.optionButton}
-            onClick={() => handleAnswer(opt.value)}
+            onClick={() => handleAnswer(option.value)}
           >
-            {opt.text}
+            {option.text}
           </button>
         ))}
       </div>
