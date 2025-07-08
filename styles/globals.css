@@ -1,5 +1,10 @@
-/* global.css 또는 Quiz.module.css */
+/* styles/globals.css */
 
+/* 웹폰트 import */
+@import url('https://cdn.jsdelivr.net/npm/pretendard@latest/dist/web/static/pretendard.css');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/suit@latest/webfont.css');
+
+/* 전체 스타일 */
 body {
   font-size: 16px;
   margin: 0;
@@ -7,6 +12,12 @@ body {
   font-family: 'SUIT', 'Pretendard', sans-serif;
   background-color: #ffffff;
   color: #000000;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'SUIT', 'Pretendard', sans-serif;
+  margin: 0;
 }
 
 h2 {
@@ -14,6 +25,12 @@ h2 {
   margin-bottom: 1rem;
 }
 
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* 공통 이미지 스타일 (예: 결과 이미지) */
 .resultImage {
   width: 300px;
   margin: 16px auto;
@@ -21,6 +38,7 @@ h2 {
   border-radius: 8px;
 }
 
+/* 반응형 스타일 */
 @media (max-width: 768px) {
   body {
     font-size: 14px;
