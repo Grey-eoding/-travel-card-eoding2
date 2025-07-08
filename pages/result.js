@@ -50,10 +50,6 @@ export default function Result() {
 
   const cardData = cardResults[card];
 
-  if (!cardData) {
-    return <div className={styles.container}>결과를 불러오는 중입니다...</div>;
-  }
-
   const handleDownloadImage = async () => {
     if (!resultRef.current) return;
     const canvas = await html2canvas(resultRef.current);
@@ -90,19 +86,23 @@ export default function Result() {
     }
   };
 
+  if (!cardData) {
+    return <div className={styles.container}>결과를 불러오는 중입니다...</div>;
+  }
+
   return (
     <div className={styles.container}>
-      <div ref={resultRef}>
-        <h1>{cardData.title}</h1>
-        <p style={{ whiteSpace: 'pre-line' }}>{cardData.description}</p>
+      <div ref={resultRef} className={styles.cardBox}>
+        <h1 className={styles.title}>{cardData.title}</h1>
+        <p className={styles.description}>{cardData.description}</p>
         <p className={styles.hashtags}>{cardData.hashtags}</p>
       </div>
 
-      <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+      <div className={styles.buttonGroup}>
         <button onClick={handleDownloadImage} className={styles.button}>이미지로 저장하기</button>
         <button onClick={handleRestart} className={styles.button}>테스트 다시하기</button>
         <button onClick={handleShare} className={styles.button}>결과 공유하기</button>
-        {copied && <span style={{ color: 'green' }}>📋 복사 완료!</span>}
+        {copied && <span className={styles.copiedMessage}>📋 복사 완료!</span>}
       </div>
     </div>
   );
