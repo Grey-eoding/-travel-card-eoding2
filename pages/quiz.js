@@ -99,13 +99,13 @@ export default function Quiz() {
       <h2>{questions[currentQuestion].question}</h2>
       <div className={styles.options}>
         {questions[currentQuestion].options.map((option, index) => (
-          <button
-            key={index}
-            className={styles.optionButton}
-            onClick={() => handleAnswer(option.value)}
-          >
-            {option.text}
-          </button>
+         <button
+  key={idx}
+  className={styles['option-button']}
+  onClick={() => handleAnswer(opt.value)}
+>
+  {opt.text}
+</button>
         ))}
       </div>
     </div>
