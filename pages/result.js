@@ -42,6 +42,16 @@ const cardResults = {
   },
 };
 
+// ✅ 카드명 ↔ 이미지 경로 매핑
+const cardImageMap = {
+  "트래블 월렛": "/images/travelwallet.png",
+  "트래블로그 체크카드": "/images/travellog.png",
+  "트래블GO 체크카드": "/images/travelgo.png",
+  "신한 SOL 트레블": "/images/soltravel.png",
+  "토스카드": "/images/toss.png",
+  "네이버페이머니카드": "/images/naverpay.png",
+};
+
 export default function Result() {
   const router = useRouter();
   const { card } = router.query;
@@ -94,6 +104,13 @@ export default function Result() {
     <div className={styles.container}>
       <div ref={resultRef} className={styles.cardBox}>
         <h1 className={styles.title}>{cardData.title}</h1>
+
+        <img
+          src={cardImageMap[card]}
+          alt={cardData.title}
+          className={styles.resultImage}
+        />
+
         <p className={styles.description}>{cardData.description}</p>
         <p className={styles.hashtags}>{cardData.hashtags}</p>
       </div>
