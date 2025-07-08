@@ -1,37 +1,57 @@
 .container {
   padding: 2rem;
-  text-align: center;
-  font-family: 'SUIT', 'Pretendard', sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.options {
+.cardBox {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  white-space: pre-line;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.hashtags {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.buttonGroup {
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 1rem;
 }
 
-.option-button {
-  width: 100%;
-  max-width: 480px;
+.button {
   padding: 1rem;
-  margin: 0.75rem auto;
-  background-color: #e6f0ff;
-  border: 2px solid #0057ff;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: 600;
-  text-align: center;
+  border: none;
+  border-radius: 8px;
+  background: #4caf50;
+  color: white;
   font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
 }
 
-.option-button:hover {
-  background-color: #d4e6ff;
+.button:hover {
+  background: #45a049;
 }
 
-@media (max-width: 768px) {
-  .option-button {
-    font-size: 0.9rem;
-    padding: 0.85rem;
-  }
+.copiedMessage {
+  color: green;
+  margin-top: 0.5rem;
+  font-weight: bold;
 }
