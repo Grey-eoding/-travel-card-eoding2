@@ -1,3 +1,6 @@
+/* styles/globals.css */
+
+/* ✅ 커스텀 웹폰트 선언 */
 @font-face {
   font-family: 'SUIT';
   src: url('/fonts/SUIT-Regular.woff2') format('woff2');
@@ -12,10 +15,11 @@
   font-style: normal;
 }
 
+/* ✅ 기본 스타일 초기화 및 공통 적용 */
 body {
-  font-size: 16px;
   margin: 0;
   padding: 0;
+  font-size: 16px;
   font-family: 'SUIT', 'Pretendard', sans-serif;
   background-color: #ffffff;
   color: #000000;
@@ -34,6 +38,7 @@ h2 {
   border-radius: 8px;
 }
 
+/* ✅ 반응형 대응 */
 @media (max-width: 768px) {
   body {
     font-size: 14px;
