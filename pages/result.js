@@ -1,40 +1,61 @@
 // pages/result.js
-
-import React from 'react';
+import { useEffect, useState, useRef } from 'react';
+import html2canvas from 'html2canvas';
 import { useRouter } from 'next/router';
-import { getTopResult } from '../data/resultData';
+import { getTopResult } from '../data/results';
+import styles from '../styles/Result.module.css';
 
-const ResultPage = () => {
-  const router = useRouter();
-  const { scores } = router.query;
-
-  if (!scores) {
-    return <div>결과를 불러오는 중입니다...</div>;
-  }
-
-  // URL 쿼리 파라미터는 문자열이므로 JSON으로 파싱
-  let parsedScores;
-  try {
-    parsedScores = JSON.parse(scores);
-  } catch (error) {
-    return <div>잘못된 점수 데이터입니다.</div>;
-  }
-
-  const result = getTopResult(parsedScores);
-
-  if (!result) {
-    return <div>추천 결과를 찾을 수 없습니다.</div>;
-  }
-
-  return (
-    <div style={{ maxWidth: '600px', margin: '40px auto', padding: '0 20px' }}>
-      <h1>{result.title}</h1>
-      <h2 style={{ color: '#555' }}>{result.subtitle}</h2>
-      <p style={{ whiteSpace: 'pre-line', marginTop: '20px', lineHeight: '1.6' }}>
-        {result.description}
-      </p>
-    </div>
-  );
+const cardImages = {
+  travelWallet: '/cards/travelWallet.png',
+  travelLog: '/cards/travelLog.png',
+  travelGo: '/cards/travelGo.png',
+  shinhanSol: '/cards/shinhanSol.png',
+  toss: '/cards/toss.png',
+  naverPay: '/cards/naverPay.png',
 };
 
-export default ResultPage;
+export default function ResultPage() {
+  const [result, setResult] = useState(null);
+  const router = useRouter();
+  const resultRef = useRef(null);
+
+  useEffect(() => {
+    const scoreMap = JSON.parse(localStorage.getItem('quizScore'));
+    if (!scoreMap) return;
+    const topResult = getTopResult(scoreMap);
+    setResult(topResult);
+  }, []);
+
+  const handleDownload = async () => {
+    if (!resultRef.current) return;
+    const canvas = await html2canvas(resultRef.current);
+    const link = document.createElement('a');
+    link.download = 'travel-card-result.png';
+    link.href = canvas.toDataURL();
+    link.click();
+  };
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(window.location.href);
+    alert('링크가 복사되었어요!');
+  };
+
+  if (!result) return <p>결과를 불러오는 중입니다...</p>;
+
+  return (
+    <div className={styles.container}>
+      <div ref={resultRef} className={styles.card}>
+        <img src={cardImages[result.key]} alt="카드 이미지" className={styles.image} />
+        <h1>{result.title}</h1>
+        <h3>{result.subtitle}</h3>
+        <pre className={styles.description}>{result.description}</pre>
+      </div>
+
+      <div className={styles.buttons}>
+        <button onClick={handleDownload}>이미지로 저장하기</button>
+        <button onClick={() => router.push('/')}>다시 하기</button>
+        <button onClick={handleCopyLink}>링크 복사</button>
+      </div>
+    </div>
+  );
+}
