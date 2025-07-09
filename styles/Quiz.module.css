@@ -1,57 +1,66 @@
-.container {
-  padding: 2rem;
-  max-width: 600px;
-  margin: 0 auto;
-}
+/* quiz.module.css */
 
-.cardBox {
-  background: #f8f9fa;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.container {
+  padding: 2rem 1.5rem;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  background-color: #ffffff;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .title {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #111827;
 }
 
-.description {
-  white-space: pre-line;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.hashtags {
-  margin-top: 1.5rem;
-  font-weight: bold;
-  color: #555;
-}
-
-.buttonGroup {
-  margin-top: 2rem;
+.choices {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.button {
-  padding: 1rem;
+.choiceButton {
+  background-color: #007aff;
+  color: #ffffff;
+  padding: 1rem 1.25rem;
   border: none;
-  border-radius: 8px;
-  background: #4caf50;
-  color: white;
+  border-radius: 1rem;
   font-size: 1rem;
+  text-align: left;
   cursor: pointer;
-  width: 100%;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-.button:hover {
-  background: #45a049;
+.choiceButton:hover {
+  background-color: #005dc1;
+  transform: translateY(-2px);
 }
 
-.copiedMessage {
-  color: green;
-  margin-top: 0.5rem;
-  font-weight: bold;
+.choiceButton.selected {
+  background-color: #0051a3;
+  font-weight: 600;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.progress {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b7280;
 }
