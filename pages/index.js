@@ -12,7 +12,7 @@ export default function Home() {
         💳 나에게 딱 맞는 트래블 카드부터 골라보세요.<br />
         어딩이 만든 <strong>1분 테스트</strong>로 <br />
         혜택·스타일·사용법까지 <strong>내 여행 성향에 맞는 카드</strong> 찾기!
-     </p>
+      </p>
       <button
         className={styles.startBtn}
         onClick={() => router.push('/quiz')}
