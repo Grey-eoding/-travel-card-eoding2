@@ -1,6 +1,4 @@
-/* styles/globals.css */
-
-/* ✅ 커스텀 웹폰트 선언 */
+/* 폰트 설정 */
 @font-face {
   font-family: 'SUIT';
   src: url('/fonts/SUIT-Regular.woff2') format('woff2');
@@ -15,14 +13,19 @@
   font-style: normal;
 }
 
-/* ✅ 기본 스타일 초기화 및 공통 적용 */
+/* 기본 스타일 */
 body {
+  font-size: 16px;
   margin: 0;
   padding: 0;
-  font-size: 16px;
   font-family: 'SUIT', 'Pretendard', sans-serif;
   background-color: #ffffff;
   color: #000000;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 h2 {
@@ -30,6 +33,11 @@ h2 {
   margin-bottom: 1rem;
 }
 
+p {
+  line-height: 1.6;
+}
+
+/* 결과 이미지 */
 .resultImage {
   width: 300px;
   max-width: 90%;
@@ -38,10 +46,43 @@ h2 {
   border-radius: 8px;
 }
 
-/* ✅ 반응형 대응 */
+/* 버튼 스타일 */
+button,
+.start-btn,
+.option-button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background-color: #007aff;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.15);
+}
+
+button:hover,
+.start-btn:hover,
+.option-button:hover {
+  background-color: #005fcc;
+}
+
+button:active,
+.start-btn:active,
+.option-button:active {
+  background-color: #004a99;
+  transform: scale(0.97);
+}
+
+/* 반응형 스타일 */
 @media (max-width: 768px) {
   body {
     font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
   }
 
   h2 {
@@ -50,5 +91,12 @@ h2 {
 
   .resultImage {
     width: 240px;
+  }
+
+  button,
+  .start-btn,
+  .option-button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
   }
 }
