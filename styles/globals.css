@@ -1,3 +1,7 @@
+/* ====================================
+   📌 글로벌 스타일 설정
+==================================== */
+
 /* ==== 폰트 설정 ==== */
 @font-face {
   font-family: 'SUIT';
@@ -13,10 +17,11 @@
 }
 
 /* ==== 기본 스타일 ==== */
+html,
 body {
-  font-size: 16px;
   margin: 0;
   padding: 0;
+  font-size: 16px;
   font-family: 'SUIT', 'Pretendard', sans-serif;
   background-color: #ffffff;
   color: #000000;
@@ -27,19 +32,27 @@ h1 {
   margin-bottom: 1.5rem;
   text-align: center;
 }
+
 h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
+
 p {
   line-height: 1.6;
 }
 
-/* ==== 공통 버튼 스타일 ==== */
+/* ====================================
+   📌 버튼 스타일
+==================================== */
+
 button,
 .start-btn,
 .option-button,
 .result-button {
+  display: block;
+  width: fit-content;
+  margin: 12px auto;
   padding: 12px 24px;
   font-size: 1rem;
   font-weight: 600;
@@ -50,9 +63,6 @@ button,
   cursor: pointer;
   transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
   box-shadow: 0 4px 12px rgba(0, 122, 255, 0.15);
-  display: block;
-  width: fit-content;
-  margin: 12px auto;
 }
 
 button:hover,
@@ -70,7 +80,7 @@ button:active,
   transform: scale(0.97);
 }
 
-/* ==== 인트로 페이지 버튼 정렬 ==== */
+/* ==== 인트로 버튼 ==== */
 .start-btn {
   padding: 10px 20px;
   font-size: 0.95rem;
@@ -82,33 +92,40 @@ button:active,
 .option-button {
   width: 100%;
   max-width: 440px;
-  margin: 12px auto;
   text-align: left;
   border-radius: 12px;
 }
 
-/* ==== 결과 이미지 스타일 ==== */
-.resultImage {
-  width: 300px;
-  max-width: 90%;
-  margin: 20px auto;
-  display: block;
-  border-radius: 12px;
-}
-
-/* ==== 결과 버튼 영역 ==== */
+/* ==== 결과 버튼 ==== */
 .result-button {
   background-color: #007aff !important;
 }
 
-/* ==== 따옴표 안 텍스트 볼드 처리 ==== */
+/* ====================================
+   📌 기타 요소
+==================================== */
+
+/* ==== 결과 이미지 ==== */
+.resultImage {
+  display: block;
+  width: 300px;
+  max-width: 90%;
+  margin: 20px auto;
+  border-radius: 12px;
+}
+
+/* ==== 결과 텍스트 강조 ==== */
 .result-text em {
   font-weight: bold;
   font-style: normal;
 }
 
-/* ==== 반응형 스타일 ==== */
+/* ====================================
+   📱 반응형 스타일
+==================================== */
+
 @media (max-width: 768px) {
+  html,
   body {
     font-size: 14px;
   }
