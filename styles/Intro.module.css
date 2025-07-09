@@ -1,25 +1,46 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
   text-align: center;
-  padding: 3rem 2rem;
+  background-color: #f9fcff;
+  font-family: 'SUIT', 'Pretendard', sans-serif;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #007aff;
 }
 
 .intro {
   font-size: 1.1rem;
   line-height: 1.8;
+  color: #333333;
   margin-bottom: 2rem;
 }
 
 .startBtn {
+  padding: 14px 28px;
   font-size: 1rem;
-  padding: 1rem 2rem;
-  background-color: #0070f3;
-  color: white;
+  font-weight: 600;
+  background-color: #007aff;
+  color: #ffffff;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.2);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .startBtn:hover {
-  background-color: #0059c1;
+  background-color: #005fcc;
+}
+
+.startBtn:active {
+  transform: scale(0.97);
+  background-color: #004a99;
 }
