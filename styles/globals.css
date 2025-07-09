@@ -1,4 +1,4 @@
-/* 폰트 설정 */
+/* ===== 폰트 설정 ===== */
 @font-face {
   font-family: 'SUIT';
   src: url('/fonts/SUIT-Regular.woff2') format('woff2');
@@ -13,7 +13,7 @@
   font-style: normal;
 }
 
-/* 기본 스타일 */
+/* ===== 기본 스타일 ===== */
 body {
   font-size: 16px;
   margin: 0;
@@ -37,7 +37,7 @@ p {
   line-height: 1.6;
 }
 
-/* 결과 이미지 */
+/* ===== 결과 이미지 ===== */
 .resultImage {
   width: 300px;
   max-width: 90%;
@@ -46,7 +46,7 @@ p {
   border-radius: 8px;
 }
 
-/* 버튼 스타일 */
+/* ===== 버튼 스타일 ===== */
 button,
 .start-btn,
 .option-button {
@@ -55,7 +55,7 @@ button,
   font-weight: 600;
   border: none;
   border-radius: 8px;
-  background-color: #007aff;
+  background-color: #007aff; /* 파란색 */
   color: #ffffff;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
@@ -75,7 +75,7 @@ button:active,
   transform: scale(0.97);
 }
 
-/* 반응형 스타일 */
+/* ===== 반응형 스타일 ===== */
 @media (max-width: 768px) {
   body {
     font-size: 14px;
