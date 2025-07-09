@@ -1,46 +1,45 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 100vh;
-  padding: 20px;
+  padding: 2rem;
+  background: #eaf6ff; /* 파스텔 블루 */
   text-align: center;
-  background: linear-gradient(135deg, #e6f0ff, #f5faff); /* 파스텔 블루 계열 */
-  font-family: 'SUIT', 'Pretendard', sans-serif;
 }
 
-h1 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-  color: #007aff;
+.title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1.5rem;
+  font-family: 'SUIT', 'Pretendard', sans-serif;
 }
 
 .intro {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #333333;
-  margin-bottom: 2rem;
+  color: #333;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+  font-family: 'SUIT', 'Pretendard', sans-serif;
 }
 
 .startBtn {
-  padding: 14px 28px;
+  background-color: #007aff;
+  color: #fff;
   font-size: 1rem;
   font-weight: 600;
-  background-color: #007aff;
-  color: #ffffff;
+  padding: 14px 28px;
   border: none;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.2);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 122, 255, 0.2);
+  font-family: 'SUIT', 'Pretendard', sans-serif;
 }
 
 .startBtn:hover {
-  background-color: #005fcc;
-}
-
-.startBtn:active {
-  transform: scale(0.97);
-  background-color: #004a99;
+  background-color: #005ecb;
 }
