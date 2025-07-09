@@ -6,7 +6,7 @@
   height: 100vh;
   padding: 20px;
   text-align: center;
-  background-color: #f9fcff;
+  background: linear-gradient(135deg, #e6f0ff, #f5faff); /* 파스텔 블루 계열 */
   font-family: 'SUIT', 'Pretendard', sans-serif;
 }
 
