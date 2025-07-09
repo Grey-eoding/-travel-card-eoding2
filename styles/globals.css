@@ -1,13 +1,10 @@
-/* ------------------------------------------
-  1. 폰트 설정 (woff2 경로 정확히 확인할 것!)
------------------------------------------- */
+/* ==== 폰트 설정 ==== */
 @font-face {
   font-family: 'SUIT';
   src: url('/fonts/SUIT-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Pretendard';
   src: url('/fonts/Pretendard-Regular.woff2') format('woff2');
@@ -15,9 +12,7 @@
   font-style: normal;
 }
 
-/* ------------------------------------------
-  2. 기본 스타일
------------------------------------------- */
+/* ==== 기본 스타일 ==== */
 body {
   font-size: 16px;
   margin: 0;
@@ -25,86 +20,94 @@ body {
   font-family: 'SUIT', 'Pretendard', sans-serif;
   background-color: #ffffff;
   color: #000000;
-  line-height: 1.6;
 }
 
 h1 {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
-
 h2 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
-
 p {
-  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
-/* ------------------------------------------
-  3. 이미지 (결과 이미지 카드)
------------------------------------------- */
-.resultImage {
-  width: 300px;
-  max-width: 90%;
-  margin: 16px auto;
-  display: block;
-  border-radius: 8px;
-}
-
-/* ------------------------------------------
-  4. 버튼 기본 스타일 (공통)
------------------------------------------- */
+/* ==== 공통 버튼 스타일 ==== */
 button,
 .start-btn,
-.option-button {
-  padding: 14px 20px;
+.option-button,
+.result-button {
+  padding: 12px 24px;
   font-size: 1rem;
   font-weight: 600;
   border: none;
-  border-radius: 10px;
-  background-color: #007aff; /* 파랑색 */
+  border-radius: 8px;
+  background-color: #007aff;
   color: #ffffff;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
   box-shadow: 0 4px 12px rgba(0, 122, 255, 0.15);
-  word-break: keep-all;
-  white-space: normal;
-  width: 100%;
-  max-width: 480px;
-  text-align: left;
+  display: block;
+  width: fit-content;
+  margin: 12px auto;
 }
 
-/* 호버/클릭 시 효과 */
 button:hover,
 .start-btn:hover,
-.option-button:hover {
+.option-button:hover,
+.result-button:hover {
   background-color: #005fcc;
 }
 
 button:active,
 .start-btn:active,
-.option-button:active {
+.option-button:active,
+.result-button:active {
   background-color: #004a99;
   transform: scale(0.97);
 }
 
-/* ------------------------------------------
-  5. 버튼 정렬용 그룹 컨테이너
------------------------------------------- */
-.button-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin: 24px 0;
-  padding: 0 16px;
+/* ==== 인트로 페이지 버튼 정렬 ==== */
+.start-btn {
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  margin-top: 24px;
+  margin-bottom: 40px;
 }
 
-/* ------------------------------------------
-  6. 반응형 스타일
------------------------------------------- */
+/* ==== 퀴즈 선택 버튼 ==== */
+.option-button {
+  width: 100%;
+  max-width: 440px;
+  margin: 12px auto;
+  text-align: left;
+  border-radius: 12px;
+}
+
+/* ==== 결과 이미지 스타일 ==== */
+.resultImage {
+  width: 300px;
+  max-width: 90%;
+  margin: 20px auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* ==== 결과 버튼 영역 ==== */
+.result-button {
+  background-color: #007aff !important;
+}
+
+/* ==== 따옴표 안 텍스트 볼드 처리 ==== */
+.result-text em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* ==== 반응형 스타일 ==== */
 @media (max-width: 768px) {
   body {
     font-size: 14px;
@@ -115,17 +118,23 @@ button:active,
   }
 
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+  }
+
+  .option-button {
+    font-size: 0.95rem;
+    padding: 10px 18px;
   }
 
   .resultImage {
-    width: 240px;
+    width: 220px;
   }
 
   button,
   .start-btn,
-  .option-button {
-    font-size: 0.95rem;
-    padding: 12px 16px;
+  .option-button,
+  .result-button {
+    font-size: 0.9rem;
+    padding: 10px 18px;
   }
 }
