@@ -2,7 +2,7 @@
 import { useEffect, useState, useRef } from 'react';
 import html2canvas from 'html2canvas';
 import { useRouter } from 'next/router';
-import { getTopResult } from '../data/results';
+import { getTopResult } from '../data/data/resultData';
 import styles from '../styles/Result.module.css';
 
 const cardImages = {
