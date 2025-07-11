@@ -1,7 +1,9 @@
-import '@/styles/globals.css'; // 유지 가능
-import Head from 'next/head';
+// pages/_app.tsx
+import '@/styles/globals.css'
+import type { AppProps } from 'next/app'
+import Head from 'next/head'
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
@@ -14,5 +16,5 @@ export default function App({ Component, pageProps }) {
       </Head>
       <Component {...pageProps} />
     </>
-  );
+  )
 }
