@@ -1,7 +1,8 @@
-// next.config.js
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  trailingSlash: true // 있어도 되고 없어도 됨
-}
+  basePath: '/travel-card-eoding2',
+  assetPrefix: '/travel-card-eoding2/',
+};
 
 module.exports = nextConfig;
