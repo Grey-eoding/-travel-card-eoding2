@@ -1,4 +1,3 @@
-// pages/result.js
 import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { results } from '../data/resultData';
@@ -7,13 +6,19 @@ import html2canvas from 'html2canvas';
 
 export default function ResultPage() {
   const [result, setResult] = useState(null);
+  const [isClient, setIsClient] = useState(false); // SSR 오류 방지
   const router = useRouter();
   const resultRef = useRef(null);
 
   useEffect(() => {
+    setIsClient(true); // 브라우저에서만 true
     const type = localStorage.getItem('type');
     const found = results.find((r) => r.type === type);
-    setResult(found);
+    if (!found) {
+      router.push('/'); // 잘못된 접근일 경우 홈으로
+    } else {
+      setResult(found);
+    }
   }, []);
 
   const handleRetry = () => {
@@ -21,8 +26,10 @@ export default function ResultPage() {
   };
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href);
-    alert('링크가 복사되었습니다!');
+    if (typeof window !== 'undefined') {
+      navigator.clipboard.writeText(window.location.href);
+      alert('링크가 복사되었습니다!');
+    }
   };
 
   const handleSaveImage = async () => {
@@ -35,7 +42,7 @@ export default function ResultPage() {
     link.click();
   };
 
-  if (!result) {
+  if (!isClient || !result) {
     return <p className={styles.loading}>결과를 불러오는 중입니다...</p>;
   }
 
