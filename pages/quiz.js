@@ -1,3 +1,4 @@
+// /pages/quiz.js
 import { useState } from 'react';
 import { quizData } from '../data/quizData';
 import styles from '../styles/Quiz.module.css';
@@ -16,7 +17,7 @@ export default function QuizPage() {
     if (currentIndex + 1 < quizData.length) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      setIsFinished(true); // 끝나면 결과 보기로 전환
+      setIsFinished(true); // 모든 질문이 끝났을 때
     }
   };
 
