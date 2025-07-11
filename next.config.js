@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  basePath: '/travel-card-eoding2',
-  assetPrefix: '/travel-card-eoding2/',
-};
+  reactStrictMode: true,
+  trailingSlash: true, // optional: export 할 때 경로 오류 방지
+}
 
 module.exports = nextConfig;
