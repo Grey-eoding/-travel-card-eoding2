@@ -6,23 +6,27 @@ import styles from '../styles/Quiz.module.css';
 export default function QuizPage() {
   const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [answers, setAnswers] = useState([]);
+  const [answers, setAnswers] = useState<string[]>([]);
 
   const currentQuestion = quizData[currentIndex];
 
-  const handleOptionClick = (type) => {
-    setAnswers([...answers, type]);
+  const handleOptionClick = (type: string) => {
+    const updatedAnswers = [...answers, type];
+    setAnswers(updatedAnswers);
 
     if (currentIndex + 1 < quizData.length) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      // 모든 질문에 응답 완료 → 결과 페이지로 이동 (query에 답변 전달)
-      router.push({
-        pathname: '/result',
-        query: { answers: JSON.stringify([...answers, type]) }
-      });
+      // 마지막 질문 후 결과 페이지로 이동
+      const queryParams = new URLSearchParams({
+        answers: JSON.stringify(updatedAnswers),
+      }).toString();
+
+      router.push(`/result?${queryParams}`);
     }
   };
+
+  if (!currentQuestion) return <p>질문을 불러오는 중입니다...</p>;
 
   return (
     <div className={styles.container}>
