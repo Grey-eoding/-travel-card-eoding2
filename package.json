@@ -1,13 +1,14 @@
 {
-  "name": "eoding-travel-card",
+  "name": "travel-card-eoding2",
   "version": "1.0.0",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start"
   },
   "dependencies": {
-    "html2canvas": "^1.4.1",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
